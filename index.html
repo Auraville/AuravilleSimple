@@ -85,6 +85,43 @@
       font-size: 0.9rem;
       color: #ccc;
     }
+    .product-scroller {
+  background: #111;
+  padding: 20px 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-snap-type: x mandatory;
+}
+
+.scroll-container {
+  display: flex;
+  gap: 16px;
+}
+
+.scroll-item {
+  flex: 0 0 auto;
+  width: 100px;
+  text-align: center;
+  scroll-snap-align: start;
+  color: #eee;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.scroll-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #d1a954;
+  object-fit: cover;
+  margin-bottom: 5px;
+  transition: transform 0.3s ease;
+}
+
+.scroll-item:hover img {
+  transform: scale(1.1);
+}
+
     footer {
       text-align: center;
       padding: 2rem;
