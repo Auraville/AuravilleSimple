@@ -85,14 +85,43 @@
       font-size: 0.9rem;
       color: #ccc;
     }
-    .product-scroller {
-  background: #111;
-  padding: 20px 10px;
-  overflow-x: auto;
-  white-space: nowrap;
-  scroll-snap-type: x mandatory;
-  margin-top: 80px;
+   
+   .single-product-carousel {
+  overflow: hidden;
+  width: 100%;
+  background: #0b0b0b;
+  padding: 40px 0;
+  position: relative;
 }
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  width: 100%;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  color: white;
+}
+
+.carousel-item img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #d1a954;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.carousel-item h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #f1f1f1;
+} 
 
 .scroll-container {
   display: flex;
@@ -230,7 +259,17 @@
     </div>
 
   </section>
+<script>
+  let currentIndex = 0;
+  const items = document.querySelectorAll('.carousel-item');
+  const track = document.querySelector('.carousel-track');
 
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % items.length;
+    const offset = -currentIndex * 100;
+    track.style.transform = `translateX(${offset}%)`;
+  }, 3000); // 3 seconds per scroll
+</script>
   <footer>
     &copy; 2025 Auraville. Premium Wellness Essentials.
   </footer>
